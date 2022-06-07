@@ -8,15 +8,19 @@ namespace CEmplyeeWageProblem
 {
     internal class EmployeWageProblelm
     {
-        public int Is_EmpPresent = 1;
-
-        public void CheckEmpPresentAbsent()
+        int IS_EmpPresent = 1;
+        int Wage_Per_Hour = 20;
+        int FullDay_Hour = 8;
+        int DailyWage = 0;
+        public void DailyEmpWg()
         {
             Random ChechEmp = new Random();
             int value = ChechEmp.Next(0, 2);
-            if (value == Is_EmpPresent)
+            if (value == IS_EmpPresent)
             {
-                Console.WriteLine("Employee Present");
+                DailyWage = FullDay_Hour * Wage_Per_Hour;
+
+                Console.WriteLine("Employee Present" + DailyWage);
 
             }
             else
