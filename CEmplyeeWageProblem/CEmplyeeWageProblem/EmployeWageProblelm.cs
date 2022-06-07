@@ -7,47 +7,40 @@ using System.Threading.Tasks;
 namespace CEmplyeeWageProblem
 {
     internal class EmployeWageProblelm
-    { 
-    int IS_EmpPresent = 1;
-    int Wage_Per_Hour = 20;
-    int FullDay_Hour = 8;
-    int PartTimeDay_Hour = 4;
-    int DailyWage = 0;
-    int Full_Time = 1;
-    public void DailyEmpWgPartTime()
     {
-        Random ChechEmp = new Random();
-        int value = ChechEmp.Next(0, 2);
-        if (value == IS_EmpPresent)
+        public const int IS_FULL_TIME = 1;
+        public const int IS_PART_TIME = 2;
+        public const int IS_ABSENT = 0;
+        int EmpDailyWage = 0;
+        public int EmpWage = 20;
+
+        public int IsEmployeePresent()
         {
-            Random TimeChech = new Random();
-            int DayCheck = TimeChech.Next(0, 2);
-            if (DayCheck == Full_Time)
-            {
-
-                DailyWage = FullDay_Hour * Wage_Per_Hour;
-
-                Console.WriteLine("Employee Present" + DailyWage);
-            }
-            else
-            {
-                DailyWage = PartTimeDay_Hour * Wage_Per_Hour;
-
-                Console.WriteLine("Employee Present for partTime" + DailyWage);
-            }
-
-
-
-
-
-
-        }
-        else
-        {
-            Console.WriteLine("Employee Absent");
-
+            return new Random().Next(0, 3);
         }
 
+        public void CalculateEmpWage()
+        {
+            int EmpWorkingHours = 0;
+
+            switch (IsEmployeePresent())
+            {
+                case IS_ABSENT:
+                    EmpWorkingHours = 0;
+                    break;
+
+                case IS_PART_TIME:
+                    EmpWorkingHours = 4;
+                    break;
+
+                case IS_FULL_TIME:
+                    EmpWorkingHours = 8;
+                    break;
+
+            }
+            EmpDailyWage = EmpWorkingHours * EmpWage;
+            Console.WriteLine("Total Empwage: " + EmpDailyWage);
+
+        }
     }
-}
 }
