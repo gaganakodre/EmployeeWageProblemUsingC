@@ -10,7 +10,7 @@ namespace CEmplyeeWageProblem
     {
         public const float EmpWagePerHour = 20;
 
-        internal void CheckEmpPresentAbsent() { }
+        
 
 
         public const int FullTime_Working_Hours_PerDay = 8;
